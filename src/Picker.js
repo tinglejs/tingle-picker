@@ -37,9 +37,7 @@ class Picker extends React.Component {
     componentWillMount() {
         var t = this;
         t.sortList = t._sortList(t.props.children);
-        t.filterList = t._filterList(t.sortList);
         t._changeList();
-
     }
 
     componentDidMount() {
@@ -56,10 +54,8 @@ class Picker extends React.Component {
 
     componentWillReceiveProps() {
         var t = this;
-        t.filterList = t._filterList(t.sortList);
-        t.setState({
-            list: t.filterList
-        });
+        t.sortList = t._sortList(t.props.children);
+        t._changeList();
 
     }
 
@@ -137,6 +133,11 @@ class Picker extends React.Component {
         return /^[\u4e00-\u9fa5]+$/.test(str);
     }
 
+    /**
+     * 获取首写字母
+     * @param {String} 要获取首字母的汉字或者英文
+     */
+
     _getInitial(str) {
         var t = this;
         if (t._isChinese(str)) {
@@ -183,7 +184,7 @@ class Picker extends React.Component {
 
     _handleKeyChange(value) {
         var t = this;
-        // setState 是异步执行的，所以要要用回调函数。
+        // setState 是异步执行的，所以要用回调函数。
         t.setState({
             filter: value
         }, t._changeList.bind(t));
@@ -224,7 +225,7 @@ class Picker extends React.Component {
             })} style={{
                 height: t.state.height
             }}>
-                <SearchBar onChange={t._handleKeyChange.bind(t)}/>
+                <SearchBar placeholder='搜索' value={t.state.filter} onChange={t._handleKeyChange.bind(t)}/>
                 <Scroller ref="scroller" bounce={false}>
                     {t._renderItems()}
                 </Scroller>
