@@ -6,7 +6,6 @@
  * All rights reserved.
  */
 var classnames = require('classnames');
-var pinyin = require('pinyin');
 
 var Picker = require('../src');
 

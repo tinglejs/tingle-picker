@@ -234,7 +234,7 @@ class Picker extends React.Component {
 }
 
 Picker.defaultProps = {
-    showKeyBar: true,
+    showKeyBar: false,
     filter: '',
     onPick: noop
 }
