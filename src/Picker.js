@@ -208,7 +208,10 @@ class Picker extends React.Component {
                             return newE;
                         })}
                     </div>)
-            items.push(<div className="tPickerItem" key={ele}>
+            items.push(<div className={classnames({
+                tPickerItem: true,
+                last: i == t.state.keyList.length - 1
+            })} key={ele}>
                         {arr}
                        </div>); 
         })
