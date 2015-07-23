@@ -16,7 +16,7 @@ var Context = require('tingle-context');
 var pinyin = require('pinyin');
 
 // ES6 析构赋值
-var {is, support, TOUCH, noop} = Tingle;
+var {is, support, TOUCH, noop} = Context;
 var {mobile: isMobile, pc: isPC} = is;
 var {START, MOVE, END, CANCEL} = TOUCH;
 var support3D = support['3d'];
