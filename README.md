@@ -1,22 +1,3 @@
 ## Picker
 
-## use
-
-#### 安装tingle-style子模块
-
-添加`tingle`的基础样式模块，在根目录下，执行下面的命令，通过git的子模块方式，把依赖加载进来。
-
-```shell
-git submodule add git@gitlab.alibaba-inc.com:alinwmobile/tingle-style.git tingle/tingle-style
-```
-
-#### 启动
-
-```
-npm start
-```
-
-
-## TODO
-
-* 待解决：通过`yo`如何执行`cli`命令进行`git submodule`的安装。
+ 是 tingle-xxxpicker 的 基础子控件，他不关心具体的业务展示逻辑，只提供：1、所有列表项按照字典序排列，每个字母有一个大头标示。2、提供一个关键字过滤的接口。3、提供一个关键词边栏，该边栏会对出现在屏幕中的字母进行高亮，并可以进行点击使被点中的关键词位于屏幕中央，该边栏可以选择隐藏。其他的picker类组件可以在他的基础之上自定义每个条目的展示样式。

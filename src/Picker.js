@@ -10,6 +10,7 @@
 var classnames = require('classnames');
 var Scroller =  require('tingle-scroller');
 var SearchBar = require('tingle-search-bar');
+var Context = require('tingle-context');
 
 // https://github.com/hotoo/pinyin
 var pinyin = require('pinyin');
@@ -239,15 +240,17 @@ class Picker extends React.Component {
 
 Picker.defaultProps = {
     showKeyBar: false,
-    filter: '',
-    onPick: noop
+    onPick: noop,
+    onSearch: noop,
+    onScroll: noop
 }
 
 // http://facebook.github.io/react/docs/reusable-components.html
 Picker.propTypes = {
     showKeyBar: React.PropTypes.bool,
-    filter: React.PropTypes.string,
-    onPick: React.PropTypes.func
+    onPick: React.PropTypes.func,
+    onSearch: React.PropTypes.func,
+    onScroll: React.PropTypes.func
 }
 
 module.exports = Picker;
