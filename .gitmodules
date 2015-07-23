@@ -7,3 +7,9 @@
 [submodule "tingle/tingle-group-list"]
 	path = tingle/tingle-group-list
 	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-group-list.git
+[submodule "tingle/tingle-text-field"]
+	path = tingle/tingle-text-field
+	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-text-field.git
+[submodule "tingle/tingle-field"]
+	path = tingle/tingle-field
+	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-field.git

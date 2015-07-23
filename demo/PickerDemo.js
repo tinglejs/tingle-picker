@@ -7,6 +7,7 @@
  */
 var classnames = require('classnames');
 var GroupList = require('tingle-group-list');
+var TextField = require('tingle-text-field');
 
 var Picker = require('../src');
 
@@ -67,7 +68,9 @@ class Demo extends React.Component {
         this.state = {
             city: {},
             height: 'auto',
-            show: false
+            show: false,
+            selectedCity: '',
+            filter: ''
         };
         var t = this;
     }
@@ -108,12 +111,23 @@ class Demo extends React.Component {
         console.log(t.state.city[group].filter(function(ele) {
             return ele.name == name;
         })[0]);
+        t.setState({
+            selectedCity: name,
+            show: false
+        });
 
     }
 
     handleSearch(value) {
         var t = this;
         t.filterList(value);
+    }
+
+    handleFieldClick() {
+        var t = this;
+        t.setState({
+            show: true
+        })
     }
 
     /**
@@ -156,16 +170,24 @@ class Demo extends React.Component {
 
     render() {
         var t = this;
-        return (
-            <div className="pickerDemo" style={{
+        var arr = [
+            <GroupList title="picker Demo">
+                <ul className="tFBH tFBJ tFBJC selectField">
+                    <li className="label">城市</li>
+                    <li className="text" onClick={t.handleFieldClick.bind(t)}>{t.state.selectedCity ? t.state.selectedCity : '请选择'}</li>
+                </ul>
+            </GroupList>,
+            <div className="pickerDemo tBCd" style={{
                 display: t.state.show ? 'block' : 'none'
             }}>
-                <div className="button"></div>
-                <Picker onSearch={t.handleSearch.bind(t)}>
+                <Picker onSearch={t.handleSearch.bind(t)} ref="picker" filter={t.state.filter}>
                     {t._renderGroupLists()}
                 </Picker>
             </div>
-        );
+        ];
+        return <div>
+                    {arr}
+               </div>
     }
 };
 

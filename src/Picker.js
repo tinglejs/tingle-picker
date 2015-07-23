@@ -25,7 +25,7 @@ class Picker extends React.Component {
         super(props);
         var t = this;
         t.state = {
-
+            filter: props.filter
         };
 
     }
@@ -81,6 +81,7 @@ class Picker extends React.Component {
 }
 
 Picker.defaultProps = {
+    filter: '',
     showKeyBar: false,
     onSearch: noop,
     onScroll: noop
@@ -88,6 +89,7 @@ Picker.defaultProps = {
 
 // http://facebook.github.io/react/docs/reusable-components.html
 Picker.propTypes = {
+    filter: React.PropTypes.string,
     showKeyBar: React.PropTypes.bool,
     onSearch: React.PropTypes.func,
     onScroll: React.PropTypes.func
