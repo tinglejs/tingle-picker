@@ -2,18 +2,5 @@
   position: fixed;
   width: 100%;
 }
-.pickerDemo .filterBG {
-  background: url("bg.png");
-  background-size: cover;
-  height: 100%;
-}
-.pickerDemo .tPicker {
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.pickerDemo .tPicker .pickerItem {
-  line-height: 30px;
-}
 
 /*# sourceMappingURL=PickerDemo.css.map */

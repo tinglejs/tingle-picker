@@ -4,3 +4,6 @@
 [submodule "tingle/tingle-search-bar"]
 	path = tingle/tingle-search-bar
 	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-search-bar.git
+[submodule "tingle/tingle-group-list"]
+	path = tingle/tingle-group-list
+	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-group-list.git

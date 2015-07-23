@@ -5,20 +5,5 @@
  * Copyright 2014-2015, Tingle Team, Alinw.
  * All rights reserved.
  */
-.tPicker {
-  filter: blur(none);
-  -webkit-filter: blur(none);
-  padding: 20px;
-}
-.tPicker .tPickerItem {
-  padding: 20px 0;
-  border-bottom: 1px solid #ccc;
-}
-.tPicker .tPickerItem.last {
-  border-bottom: none;
-}
-.tPicker .tPickerItem .tItemTitle {
-  display: block;
-}
 
 /*# sourceMappingURL=Picker.css.map */
