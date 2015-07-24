@@ -50,6 +50,11 @@ var city = {
             name: '南京',
             abbr: 'nj',
             pinyin: 'nanjing'
+        },
+        {
+            name: '南宁',
+            abbr: 'nn',
+            pinyin: 'nanning'
         }
     ],
     "w": [
@@ -121,6 +126,9 @@ class Demo extends React.Component {
     handleSearch(value) {
         var t = this;
         t.filterList(value);
+        t.setState({
+            filter: value
+        })
     }
 
     handleFieldClick() {
