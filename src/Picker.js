@@ -34,7 +34,7 @@ class Picker extends React.Component {
         t.el = React.findDOMNode(t);
         t.scroller = t.refs.scroller.scroller;
         var scrollerEl = React.findDOMNode(t.refs.scroller);
-        scrollerEl.style.height = parseInt(t.el.style.height) - 44 + 'px';
+        scrollerEl.style.height = t.props.showSearchBar ? parseInt(t.el.style.height) - 44 + 'px' : parseInt(t.el.style.height) + 'px';
         t.scroller.refresh();        
     }
 
@@ -62,7 +62,9 @@ class Picker extends React.Component {
             })} style={{
                 height: t.props.height
             }}>
-                <SearchBar placeholder='中文/拼音/首字母' value={t.props.filter} onChange={t._handleKeyChange.bind(t)}/>
+                <SearchBar className={classnames({
+                    tDN: t.props.showSearchBar
+                })} placeholder='中文/拼音/首字母' value={t.props.filter} onChange={t._handleKeyChange.bind(t)}/>
                 <Scroller ref="scroller" bounce={false}>
                     {t._renderItems()}
                 </Scroller>
@@ -75,6 +77,7 @@ Picker.defaultProps = {
     filter: '',
     height: 0,
     showKeyBar: false,
+    showSearchBar: false,
     onSearch: noop,
     onScroll: noop
 }
