@@ -31,13 +31,10 @@ class Picker extends React.Component {
 
     componentDidMount() {
         var t = this;
-        var height = document.documentElement.clientHeight || window.innerHeight;
-        t.setState({
-            height: height
-        });
+        t.el = React.findDOMNode(t);
         t.scroller = t.refs.scroller.scroller;
-        var scroller = React.findDOMNode(t.refs.scroller);
-        scroller.style.height = height - 44 + 'px';
+        var scrollerEl = React.findDOMNode(t.refs.scroller);
+        scrollerEl.style.height = parseInt(t.el.style.height) - 44 + 'px';
         t.scroller.refresh();        
     }
 
@@ -63,7 +60,7 @@ class Picker extends React.Component {
                 "tPicker t3D": true,
                 [t.props.className]: !!t.props.className
             })} style={{
-                height: t.state.height
+                height: t.props.height
             }}>
                 <SearchBar placeholder='中文/拼音/首字母' value={t.props.filter} onChange={t._handleKeyChange.bind(t)}/>
                 <Scroller ref="scroller" bounce={false}>
@@ -76,6 +73,7 @@ class Picker extends React.Component {
 
 Picker.defaultProps = {
     filter: '',
+    height: 0,
     showKeyBar: false,
     onSearch: noop,
     onScroll: noop
@@ -84,6 +82,7 @@ Picker.defaultProps = {
 // http://facebook.github.io/react/docs/reusable-components.html
 Picker.propTypes = {
     filter: React.PropTypes.string,
+    height: React.PropTypes.number,
     showKeyBar: React.PropTypes.bool,
     onSearch: React.PropTypes.func,
     onScroll: React.PropTypes.func
