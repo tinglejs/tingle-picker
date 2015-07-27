@@ -25,7 +25,6 @@ class Picker extends React.Component {
         super(props);
         var t = this;
         t.state = {
-            filter: props.filter
         };
 
     }
@@ -49,12 +48,7 @@ class Picker extends React.Component {
 
     _handleKeyChange(value) {
         var t = this;
-        t.setState({
-            filter: value
-        }, function() {
-            t.props.onSearch(value);
-        });
-
+        t.props.onSearch(value);
     }
 
     _renderItems(){
@@ -71,7 +65,7 @@ class Picker extends React.Component {
             })} style={{
                 height: t.state.height
             }}>
-                <SearchBar placeholder='中文/拼音/首字母' value={t.state.filter} onChange={t._handleKeyChange.bind(t)}/>
+                <SearchBar placeholder='中文/拼音/首字母' value={t.props.filter} onChange={t._handleKeyChange.bind(t)}/>
                 <Scroller ref="scroller" bounce={false}>
                     {t._renderItems()}
                 </Scroller>
