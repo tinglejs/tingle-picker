@@ -10,5 +10,9 @@
   top: 0;
   width: 100%;
 }
+.tPicker .tPickerMainBox {
+  position: absolute;
+  width: 100%;
+}
 
 /*# sourceMappingURL=Picker.css.map */

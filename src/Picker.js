@@ -38,8 +38,8 @@ class Picker extends React.Component {
         t.scrollerEl = React.findDOMNode(t.scroller);
         t.mainBox = t.el.querySelector('.tPickerMainBox');
         t.mainBox.style.height = winHeight - t.props.offsetTop - t.props.offsetBottom + 'px';
-        scrollerEl.style.height = t.props.showSearchBar ? parseInt(t.mainBox.style.height) - 44 + 'px' : parseInt(t.mainBox.style.height) + 'px';
-        t.scroller.refresh();        
+        t.scrollerEl.style.height = t.props.showSearchBar ? parseInt(t.mainBox.style.height) - 44 + 'px' : parseInt(t.mainBox.style.height) + 'px';
+        t.scroller.scroller.refresh();        
     }
 
     componentWillReceiveProps() {
@@ -86,12 +86,12 @@ class Picker extends React.Component {
                 "tPicker t3D": true,
                 [t.props.className]: !!t.props.className
             })} style={{
-                height: winHeight
+                height: winHeight,
+                display: t.props.show ? 'block' : 'none'
             }}>
                 {t._renderOthers()}
                 <div className="tPickerMainBox" style={{
-                    marginTop: t.props.offsetTop,
-                    marginBottom: t.props.offsetBottom
+                    top: t.props.offsetTop
                 }}>
                     {arr}
                     <Scroller ref="scroller" bounce={false}>
@@ -105,6 +105,7 @@ class Picker extends React.Component {
 
 Picker.defaultProps = {
     filter: '',
+    show: false,
     offsetTop: 0,
     offsetBottom: 0,
     searchPlaceholder: '中文/拼音/首字母',
@@ -117,6 +118,7 @@ Picker.defaultProps = {
 // http://facebook.github.io/react/docs/reusable-components.html
 Picker.propTypes = {
     filter: React.PropTypes.string,
+    show: React.PropTypes.bool,
     offsetTop: React.PropTypes.number,
     offsetBottom: React.PropTypes.number,
     searchPlaceholder: React.PropTypes.string,
