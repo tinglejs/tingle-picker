@@ -1,4 +1,4 @@
-class PickerList extends React.Component {
+class PickerList1 extends React.Component {
 
     constructor(props) {
         super(props);
@@ -14,11 +14,13 @@ class PickerList extends React.Component {
     }
 }
 
-PickerList.defaultProps = {
+PickerList1.defaultProps = {
 }
 
 // http://facebook.github.io/react/docs/reusable-components.html
-PickerList.propTypes = {
+PickerList1.propTypes = {
 }
 
-module.exports = PickerList;
+PickerList1.displayName = "PickerList";
+
+module.exports = PickerList1;

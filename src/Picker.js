@@ -56,7 +56,7 @@ class Picker extends React.Component {
         var t = this;
         var arr = [];
         React.Children.map(t.props.children, function(ele) {
-            if (ele && typeof ele.type == 'function' && ele.type.name == 'PickerList') {
+            if (ele && typeof ele.type == 'function' && ele.type.displayName == 'PickerList') {
                 arr.push(ele)
             }
         });
@@ -67,7 +67,7 @@ class Picker extends React.Component {
         var t = this;
         var arr = [];
         React.Children.map(t.props.children, function(ele) {
-            if (!ele || typeof ele.type !== 'function' || ele.type.name !== 'PickerList') {
+            if (!ele || typeof ele.type !== 'function' || ele.type.displayName !== 'PickerList') {
                 arr.push(ele)
             }
         });
