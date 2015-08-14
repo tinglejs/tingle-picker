@@ -20,6 +20,7 @@ var {mobile: isMobile, pc: isPC} = is;
 var {START, MOVE, END, CANCEL} = TOUCH;
 var support3D = support['3d'];
 
+
 class Picker extends React.Component {
 
     constructor(props) {
@@ -94,7 +95,7 @@ class Picker extends React.Component {
                     top: t.props.offsetTop
                 }}>
                     {arr}
-                    <Scroller ref="scroller" bounce={false}>
+                    <Scroller ref="scroller" bounce={false} mouseWheel={isPC ? true : false}>
                         {t._renderLists()}
                     </Scroller>
                 </div>
