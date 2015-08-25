@@ -15,10 +15,6 @@ var PickerList = require('./PickerList.js')
 
 
 // ES6 析构赋值
-var {is, support, TOUCH, noop} = Context;
-var {mobile: isMobile, pc: isPC} = is;
-var {START, MOVE, END, CANCEL} = TOUCH;
-var support3D = support['3d'];
 
 
 class Picker extends React.Component {
@@ -95,7 +91,7 @@ class Picker extends React.Component {
                     top: t.props.offsetTop
                 }}>
                     {arr}
-                    <Scroller ref="scroller" bounce={false} mouseWheel={isPC ? true : false}>
+                    <Scroller ref="scroller" bounce={false} mouseWheel={Context.isPC ? true : false}>
                         {t._renderLists()}
                     </Scroller>
                 </div>
@@ -112,8 +108,8 @@ Picker.defaultProps = {
     searchPlaceholder: '中文/拼音/首字母',
     showKeyBar: false,
     showSearchBar: false,
-    onSearch: noop,
-    onScroll: noop
+    onSearch: Context.noop,
+    onScroll: Context.noop
 }
 
 // http://facebook.github.io/react/docs/reusable-components.html
