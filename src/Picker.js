@@ -126,6 +126,6 @@ Picker.propTypes = {
 }
 
 
-Picker.list = PickerList;
+Picker.List = PickerList;
 
 module.exports = Picker;
