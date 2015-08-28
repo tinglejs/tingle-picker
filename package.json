@@ -1,6 +1,6 @@
 {
   "name": "tingle-picker",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "tingle-picker component for tingle.",
   "repository": "https://github.com/tinglejs/tingle-picker.git",
   "author": {
@@ -13,8 +13,9 @@
     "README.md"
   ],
   "keywords": [
-    "tingle-picker,Picker",
-    "picker"
+    "tingle", 
+    "picker", 
+    "react"
   ],
   "dependencies": {
     "classnames": "^2.1.2",
@@ -25,18 +26,14 @@
     "zepto": "0.0.4"
   },
   "devDependencies": {
-    "babel-core": "^5.2.17",
-    "babel-loader": "^5.0.0",
-    "browser-sync": "^2.7.13",
+    "babel-core": "^5.8.19",
+    "babel-loader": "^5.3.2",
     "gulp": "^3.9.0",
-    "gulp-sourcemaps": "~1.5.1",
-    "gulp-stylus": "~2.0.1",
-    "gulp-uglify": "^1.2.0",
-    "pinyin": "~2.5.0",
-    "webpack": "^1.8.4"
+    "tingle-dev-tools": "latest"
   },
   "scripts": {
     "start": "gulp d"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "screenshots": "http://gtms03.alicdn.com/tps/i3/TB1aSZGJXXXXXXvXVXXCN.gZVXX-320-572.png"
 }

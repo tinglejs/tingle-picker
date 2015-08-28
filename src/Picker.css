@@ -11,7 +11,7 @@
   width: 100%;
   z-index: 11;
 }
-.tPicker .tPickerMainBox {
+.tPickerMainBox {
   position: absolute;
   width: 100%;
 }

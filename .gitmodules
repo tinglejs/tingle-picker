@@ -13,3 +13,6 @@
 [submodule "tingle/tingle-field"]
 	path = tingle/tingle-field
 	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-field.git
+[submodule "tingle/tingle-icon"]
+	path = tingle/tingle-icon
+	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-icon.git

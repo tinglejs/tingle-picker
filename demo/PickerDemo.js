@@ -5,21 +5,21 @@
  * Copyright 2014-2015, Tingle Team, Alinw.
  * All rights reserved.
  */
-var classnames = require('classnames');
-var GroupList = require('tingle-group-list');
-var TextField = require('tingle-text-field');
+let classnames = require('classnames');
+let GroupList = require('tingle-group-list');
+let TextField = require('tingle-text-field');
 
-var Picker = require('../src');
+let Picker = require('../src');
 
-var city = {
-    "b": [
+const city = {
+    "B": [
         {
             name: '北京',
             abbr: 'bj',
             pinyin: 'beijing'
         }
     ],
-    "c": [
+    "C": [
         {
             name: '重庆',
             abbr: 'cq',
@@ -31,21 +31,21 @@ var city = {
             pinyin: 'changchun' 
         }
     ],
-    "h": [
+    "H": [
         {
             name: '杭州',
             abbr: 'hz',
             pinyin: 'hangzhou'
         }
     ],
-    "s": [
+    "S": [
         {
             name: '上海',
             abbr: 'sh',
             pinyin: 'shanghai' 
         }
     ],
-    "n": [
+    "N": [
         {
             name: '南京',
             abbr: 'nj',
@@ -57,7 +57,7 @@ var city = {
             pinyin: 'nanning'
         }
     ],
-    "w": [
+    "W": [
         {
             name: '武汉',
             abbr: 'wh',
@@ -71,70 +71,39 @@ class Demo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            city: {},
-            height: 'auto',
-            show: false,
-            selectedCity: '',
+            city: city,
             filter: ''
         };
-        var t = this;
-    }
-
-    componentWillMount() {
-        var t = this;
-        t.city = city;
-        t.filterList('');
-    }
-
-    componentDidMount() {
-        var height = document.documentElement.clientHeight || window.innerHeight;
-        var t = this;
-        t.setState({
-            height: height
-        })
     }
 
     _renderGroupLists() {
-        var t = this;
-        var arr = []
-        var groups = Object.keys(t.state.city);
+        let t = this;
+        let arr = []
+        let groups = Object.keys(t.state.city);
         groups.forEach(function(group, i) {
-            arr.push(<GroupList className={group} title={group.toUpperCase()} key={group}>
-                        {t.state.city[group].map(function(city, i) {
-                            return <div className="tLH44 tPL10" key={group + city.pinyin} data-group={group} data-name={city.name} onClick={t.handleClick.bind(t)}>{city.name}</div>
+            arr.push(<GroupList className={group} title={group} key={group}>
+                        {city[group].map(function(city, i) {
+                            return <div className="tLH44 tPL10" key={group + i} data-group={group} data-name={city.name} onClick={t._handleClick.bind(t)}>{city.name}</div>
                         })}
                     </GroupList>)
         });
         return arr;
     }
 
-    handleClick(e) {
-        var t = this;
-        var target = e.currentTarget;
-        var name = target.getAttribute('data-name');
-        var group = target.getAttribute('data-group');
-        console.log(t.state.city[group].filter(function(ele) {
-            return ele.name == name;
-        })[0]);
-        t.setState({
-            selectedCity: name,
-            show: false
-        });
-
+    _handleClick(e) {
+        let t = this;
+        let target = e.currentTarget;
+        let name = target.getAttribute('data-name');
+        let group = target.getAttribute('data-group');
+        let data = city[group].filter(function(ele) {return ele.name == name})[0];
+        alert(data.name);
     }
 
-    handleSearch(value) {
-        var t = this;
-        t.filterList(value);
+    _handleSearch(value) {
+        let t = this;
+        t._filterList(value);
         t.setState({
             filter: value
-        })
-    }
-
-    handleFieldClick() {
-        var t = this;
-        t.setState({
-            show: true
         })
     }
 
@@ -146,14 +115,13 @@ class Demo extends React.Component {
         return /^[\u4e00-\u9fa5]+$/.test(str);
     }
 
-    filterList(value) {
-        var t = this;
-        var city = t.city;
-        var groups = Object.keys(city);
-        var newCity = {};
+    _filterList(value) {
+        let t = this;
+        let groups = Object.keys(city);
+        let newCity = {};
         if (t._isChinese(value)) {
             groups.forEach(function(group, i) {
-                var groupCity = city[group].filter(function(ele) {
+                let groupCity = city[group].filter(function(ele) {
                     return ele.name.indexOf(value) != -1
                 })
                 if (groupCity.length != 0) {
@@ -163,7 +131,7 @@ class Demo extends React.Component {
         }
         else {
             groups.forEach(function(group, i) {
-                var groupCity = city[group].filter(function(ele) {
+                let groupCity = city[group].filter(function(ele) {
                     return ele.abbr.indexOf(value) != -1 || ele.pinyin.indexOf(value) != -1
                 })
                 if (groupCity.length != 0) {
@@ -177,25 +145,19 @@ class Demo extends React.Component {
     }
 
     render() {
-        var t = this;
-        var arr = [
-            <GroupList title="picker Demo">
-                <ul className="tFBH tFBJ tFBJC selectField">
-                    <li className="label">城市</li>
-                    <li className="text" onClick={t.handleFieldClick.bind(t)}>{t.state.selectedCity ? t.state.selectedCity : '请选择'}</li>
-                </ul>
-            </GroupList>,
-            <div className="pickerDemo tBCd" style={{
-                display: t.state.show ? 'block' : 'none'
-            }}>
-                <Picker onSearch={t.handleSearch.bind(t)} ref="picker" filter={t.state.filter}>
+        let t = this;
+        
+        return (
+            <Picker
+            show={true} 
+            showSearchBar={true}
+            filter={t.state.filter}
+            onSearch={t._handleSearch.bind(t)}>
+                <Picker.List>
                     {t._renderGroupLists()}
-                </Picker>
-            </div>
-        ];
-        return <div>
-                    {arr}
-               </div>
+                </Picker.List>
+            </Picker>
+        );
     }
 };
 

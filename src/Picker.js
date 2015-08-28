@@ -7,51 +7,43 @@
  */
 
 // 引入
-var classnames = require('classnames');
-var Scroller =  require('tingle-scroller');
-var SearchBar = require('tingle-search-bar');
-var Context = require('tingle-context');
-var PickerList = require('./PickerList.js')
-
-
-// ES6 析构赋值
+let classnames = require('classnames');
+let Scroller =  require('tingle-scroller');
+let SearchBar = require('tingle-search-bar');
+let Context = require('tingle-context');
+let PickerList = require('./PickerList.js')
 
 
 class Picker extends React.Component {
 
     constructor(props) {
         super(props);
-        var t = this;
+        let t = this;
         t.state = {
         };
 
     }
 
     componentDidMount() {
-        var t = this;
-        var winHeight = document.documentElement.clientHeight || window.innerHeight;
+        let t = this;
+        let winHeight = document.documentElement.clientHeight || window.innerHeight;
         t.el = React.findDOMNode(t);
         t.scroller = t.refs.scroller;
-        t.scrollerEl = React.findDOMNode(t.scroller);
-        t.mainBox = t.el.querySelector('.tPickerMainBox');
-        t.mainBox.style.height = winHeight - t.props.offsetTop - t.props.offsetBottom + 'px';
-        t.scrollerEl.style.height = t.props.showSearchBar ? parseInt(t.mainBox.style.height) - 44 + 'px' : parseInt(t.mainBox.style.height) + 'px';
-        t.scroller.scroller.refresh();        
+        let scrollerEl = React.findDOMNode(t.scroller);
+        let mainBox = t.el.querySelector('.tPickerMainBox');
+        mainBox.style.height = winHeight - t.props.offsetTop - t.props.offsetBottom + 'px';
+        scrollerEl.style.height = t.props.showSearchBar ? parseInt(t.mainBox.style.height) - 44 + 'px' : parseInt(t.mainBox.style.height) + 'px';
+        scroller.scroller.refresh();        
     }
-
-    componentWillReceiveProps() {
-        var t = this;
-    }
-
 
     _handleKeyChange(value) {
-        var t = this;
+        let t = this;
         t.props.onSearch(value);
     }
 
     _renderLists() {
-        var t = this;
-        var arr = [];
+        let t = this;
+        let arr = [];
         React.Children.map(t.props.children, function(ele) {
             if (ele && typeof ele.type == 'function' && ele.type.displayName == 'PickerList') {
                 arr.push(ele)
@@ -61,8 +53,8 @@ class Picker extends React.Component {
     }
 
     _renderOthers() {
-        var t = this;
-        var arr = [];
+        let t = this;
+        let arr = [];
         React.Children.map(t.props.children, function(ele) {
             if (!ele || typeof ele.type !== 'function' || ele.type.displayName !== 'PickerList') {
                 arr.push(ele)
@@ -76,7 +68,7 @@ class Picker extends React.Component {
         var arr = [];
         var winHeight = document.documentElement.clientHeight || window.innerHeight;
         if (t.props.showSearchBar) {
-            arr.push(<SearchBar placeholder={t.props.searchPlaceholder} value={t.props.filter} onChange={t._handleKeyChange.bind(t)}/>)
+            arr.push(<SearchBar key="searchbar" placeholder={t.props.searchPlaceholder} value={t.props.filter} onChange={t._handleKeyChange.bind(t)}/>)
         }
         return (
             <div className={classnames({
