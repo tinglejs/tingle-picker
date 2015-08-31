@@ -64,9 +64,9 @@ class Picker extends React.Component {
     }
 
     render() {
-        var t = this;
-        var arr = [];
-        var winHeight = document.documentElement.clientHeight || window.innerHeight;
+        let t = this;
+        let arr = [];
+        let winHeight = document.documentElement.clientHeight || window.innerHeight;
         if (t.props.showSearchBar) {
             arr.push(<SearchBar key="searchbar" placeholder={t.props.searchPlaceholder} value={t.props.filter} onChange={t._handleKeyChange.bind(t)}/>)
         }
