@@ -1,6 +1,3 @@
-[submodule "tingle/tingle-scroller"]
-	path = tingle/tingle-scroller
-	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-scroller.git
 [submodule "tingle/tingle-search-bar"]
 	path = tingle/tingle-search-bar
 	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-search-bar.git
@@ -15,4 +12,7 @@
 	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-field.git
 [submodule "tingle/tingle-icon"]
 	path = tingle/tingle-icon
-	url = git@gitlab.alibaba-inc.com:alinwmobile/tingle-icon.git
+	url = git@github.com:tinglejs/tingle-icon.git
+[submodule "tingle/tingle-scroller"]
+	path = tingle/tingle-scroller
+	url = git@github.com:tinglejs/tingle-scroller.git
