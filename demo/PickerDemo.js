@@ -1,6 +1,6 @@
 /**
  * Picker Component Demo for tingle
- * @auther guanghong.wsj
+ * @author guanghong.wsj
  *
  * Copyright 2014-2015, Tingle Team, Alinw.
  * All rights reserved.
@@ -64,7 +64,7 @@ const city = {
             pinyin: 'wuhan'
         }
     ]
-}
+};
 
 class Demo extends React.Component {
 
@@ -78,12 +78,12 @@ class Demo extends React.Component {
 
     _renderGroupLists() {
         let t = this;
-        let arr = []
+        let arr = [];
         let groups = Object.keys(t.state.city);
         groups.forEach(function(group, i) {
             arr.push(<GroupList className={group} title={group} key={group}>
                         {city[group].map(function(city, i) {
-                            return <div className="tLH44 tPL10" key={group + i} data-group={group} data-name={city.name} onClick={t._handleClick.bind(t)}>{city.name}</div>
+                            return <div className="tLH44" key={group + i} data-group={group} data-name={city.name} onClick={t._handleClick.bind(t)}>{city.name}</div>
                         })}
                     </GroupList>)
         });
@@ -123,7 +123,7 @@ class Demo extends React.Component {
             groups.forEach(function(group, i) {
                 let groupCity = city[group].filter(function(ele) {
                     return ele.name.indexOf(value) != -1
-                })
+                });
                 if (groupCity.length != 0) {
                     newCity[group] = groupCity;
                 }
@@ -133,7 +133,7 @@ class Demo extends React.Component {
             groups.forEach(function(group, i) {
                 let groupCity = city[group].filter(function(ele) {
                     return ele.abbr.indexOf(value) != -1 || ele.pinyin.indexOf(value) != -1
-                })
+                });
                 if (groupCity.length != 0) {
                     newCity[group] = groupCity;
                 }
@@ -159,6 +159,5 @@ class Demo extends React.Component {
             </Picker>
         );
     }
-};
-
+}
 module.exports = Demo;

@@ -1,6 +1,6 @@
 /**
  * Picker Component for tingle
- * @auther guanghong.wsj
+ * @author guanghong.wsj
  *
  * Copyright 2014-2015, Tingle Team, Alinw.
  * All rights reserved.
@@ -22,11 +22,11 @@ class PickerList extends React.Component {
 }
 
 PickerList.defaultProps = {
-}
+};
 
 // http://facebook.github.io/react/docs/reusable-components.html
 PickerList.propTypes = {
-}
+};
 
 PickerList.displayName = "PickerList";
 

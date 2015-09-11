@@ -1,19 +1,10 @@
 ## Picker
 
- 
-
-
-# Picker 选择器容器
-
-----
-
-## TL;DR
-
-> tingle-picker 是 tingle-xxxpicker 的容器控件。提供一个搜索条和一个可以垂直滚动的列表容器。
+tingle-picker 是 tingle-xxxpicker 的容器控件。提供一个搜索条和一个可以垂直滚动的列表容器。
 
 效果图：   
 
-![效果图](http://gtms03.alicdn.com/tps/i3/TB1aSZGJXXXXXXvXVXXCN.gZVXX-320-572.png)
+<img src="https://img.alicdn.com/tps/TB1UokhJpXXXXcTXXXXXXXXXXXX-750-1254.png" width="375"/>
 
 ## Simple Usage
 

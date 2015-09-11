@@ -1,6 +1,6 @@
 /**
  * Picker Component for tingle
- * @auther guanghong.wsj
+ * @author guanghong.wsj
  *
  * Copyright 2014-2015, Tingle Team, Alinw.
  * All rights reserved.
@@ -11,7 +11,7 @@ let classnames = require('classnames');
 let Scroller =  require('tingle-scroller');
 let SearchBar = require('tingle-search-bar');
 let Context = require('tingle-context');
-let PickerList = require('./PickerList.js')
+let PickerList = require('./PickerList');
 
 
 class Picker extends React.Component {
@@ -102,7 +102,7 @@ Picker.defaultProps = {
     showSearchBar: false,
     onSearch: Context.noop,
     onScroll: Context.noop
-}
+};
 
 // http://facebook.github.io/react/docs/reusable-components.html
 Picker.propTypes = {
@@ -115,7 +115,7 @@ Picker.propTypes = {
     showSearchBar: React.PropTypes.bool,
     onSearch: React.PropTypes.func,
     onScroll: React.PropTypes.func
-}
+};
 
 
 Picker.List = PickerList;
