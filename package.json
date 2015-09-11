@@ -5,8 +5,11 @@
   "repository": "https://github.com/tinglejs/tingle-picker.git",
   "author": {
     "name": "guanghong.wsj",
-    "email": ""
+    "email": "wsj7552715@hotmail.com"
   },
+  "maintainers":[
+    "yize <yize.shc@gmail.com>"
+  ],
   "main": "src/index.js",
   "files": [
     "src",
