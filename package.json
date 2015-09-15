@@ -1,7 +1,7 @@
 {
   "name": "tingle-picker",
   "version": "0.2.0",
-  "description": "tingle-picker component for tingle.",
+  "description": "提供简单的含有搜索和滚动的列表的控件",
   "repository": "https://github.com/tinglejs/tingle-picker.git",
   "author": {
     "name": "guanghong.wsj",
@@ -18,7 +18,8 @@
   "keywords": [
     "tingle",
     "picker",
-    "react"
+    "react",
+    "搜索"
   ],
   "dependencies": {
     "classnames": "^2.1.2",
