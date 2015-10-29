@@ -156,6 +156,7 @@ class Demo extends React.Component {
                 <Picker.List>
                     {t._renderGroupLists()}
                 </Picker.List>
+                <Picker.Keybar keys={['B', 'C', 'H', 'S', 'N', 'W']} />
             </Picker>
         );
     }
