@@ -98,6 +98,7 @@ render() {
             <Picker.List>
                 {t._renderGroupLists()}
             </Picker.List>
+            <Picker.Keybar keys={['B', 'C', 'H', 'S', 'N', 'W']} />
         </Picker>
   
 }
@@ -114,6 +115,12 @@ render() {
 |searchPlaceholder|string|optional|中文/拼音/首字母|
 |showSearchBar|boolean|optional|false|是否显示搜索条|
 |onSearch|function|optional|-|搜索条中的值发生改变时触发，可以在此时通过更改 filter 来改变 searchbar 里的显示
+
+### PickerKeybar 可用配置
+| 配置项 | 类型 | 必填 | 默认值 | 功能/备注 |
+|---|---|---|---|---|
+|keys|array|optional|[]|右侧快速导航栏展示的key,点击后会滚动到PickerList下对应GroupList title的地方|
+|onChange|function|optional|-|通过快速导航栏移动后触发|
 
 ## Links 相关链接
 

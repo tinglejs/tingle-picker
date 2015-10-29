@@ -12,6 +12,7 @@ let Scroller =  require('tingle-scroller');
 let SearchBar = require('tingle-search-bar');
 let Context = require('tingle-context');
 let PickerList = require('./PickerList');
+let PickerKeybar = require('./PickerKeybar');
 
 
 class Picker extends React.Component {
@@ -41,6 +42,33 @@ class Picker extends React.Component {
         t.props.onSearch(value);
     }
 
+    _handleKeybarChange(key, onChange) {
+        let t = this,
+            scroller = this.refs.scroller;
+
+        let childrens = scroller.el.childNodes[0].childNodes[0].children,
+            scrollerHeight = scroller.el.childNodes[0].offsetHeight,
+            screenHeight = parseInt(scroller.el.style.height),
+            scrollNums = 0;
+
+        for (var i = 0; i < childrens.length; i++) {
+            let item = childrens[i];
+            if (item.firstChild.innerHTML == key) {
+                scrollNums = item.offsetTop;
+            }
+        }
+
+        scrollNums = t.props.showSearchBar ? scrollNums - 44 : scrollNums;
+
+        if (scrollNums > scrollerHeight - screenHeight) {
+            scrollNums = scrollerHeight - screenHeight
+        }
+
+        scroller.scroller.scrollTo(0, -scrollNums);
+
+        onChange && onChange(key);
+    }
+
     _renderLists() {
         let t = this;
         let arr = [];
@@ -52,11 +80,24 @@ class Picker extends React.Component {
         return arr;
     }
 
+    _renderKeybar() {
+        let t = this;
+        let arr = [];
+        React.Children.map(t.props.children, function(ele) {
+            if (!ele || typeof ele.type !== 'function' || ele.type.displayName == 'PickerKeybar') {
+                 arr.push(React.cloneElement(ele, {
+                    triggerEvents: t._handleKeybarChange.bind(t)
+                }));
+            }
+        });
+        return arr;
+    }
+
     _renderOthers() {
         let t = this;
         let arr = [];
         React.Children.map(t.props.children, function(ele) {
-            if (!ele || typeof ele.type !== 'function' || ele.type.displayName !== 'PickerList') {
+            if (!ele || typeof ele.type !== 'function' || (ele.type.displayName !== 'PickerList' && ele.type.displayName !== 'PickerKeybar')) {
                 arr.push(ele)
             }
         });
@@ -79,6 +120,7 @@ class Picker extends React.Component {
                 display: t.props.show ? 'block' : 'none'
             }}>
                 {t._renderOthers()}
+                {t._renderKeybar()}
                 <div className="tPickerMainBox" style={{
                     top: t.props.offsetTop
                 }}>
@@ -119,5 +161,6 @@ Picker.propTypes = {
 
 
 Picker.List = PickerList;
+Picker.Keybar = PickerKeybar;
 
 module.exports = Picker;

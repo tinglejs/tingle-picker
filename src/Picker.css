@@ -15,5 +15,19 @@
   position: absolute;
   width: 100%;
 }
+.tPickerKeybar {
+  width: 14px;
+  font-size: 10px;
+  position: fixed;
+  right: 0;
+  top: 30%;
+  z-index: 30;
+  text-align: center;
+}
+.tPickerKeybar span {
+  display: block;
+  padding: 2px 0;
+  color: #f4ae58;
+}
 
 /*# sourceMappingURL=Picker.css.map */
