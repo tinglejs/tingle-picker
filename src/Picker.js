@@ -34,7 +34,10 @@ class Picker extends React.Component {
         let mainBox = t.el.querySelector('.tPickerMainBox');
         mainBox.style.height = winHeight - t.props.offsetTop - t.props.offsetBottom + 'px';
         scrollerEl.style.height = t.props.showSearchBar ? parseInt(mainBox.style.height) - 44 + 'px' : parseInt(mainBox.style.height) + 'px';
-        t.scroller.scroller.refresh();        
+        t.scroller.scroller.refresh(); 
+        t.scroller.scroller.on("scrollStart", () => {
+            document.activeElement.blur();
+        });       
     }
 
     _handleKeyChange(value) {
